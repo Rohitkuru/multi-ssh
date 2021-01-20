@@ -6,7 +6,7 @@ import os
 def ssh_execute(hostname):
 
     try:
-        ssh_client.connect(hostname=hostname, username="rkurdukar", password="Arjun@me123",timeout=10)
+        ssh_client.connect(hostname=hostname, username="rkurdukar", password="my_password",timeout=10)
         stdin, stdout, stderr = ssh_client.exec_command(args.command)
         output = stdout.readlines() + stderr.readlines()
     except Exception as e:
