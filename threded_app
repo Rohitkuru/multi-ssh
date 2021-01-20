@@ -1,0 +1,59 @@
+import sys
+import paramiko
+from tqdm import tqdm
+import threading
+import random
+import string
+import time
+
+
+def ssh_execute(hostname):
+
+    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    try:
+        lock.acquire()
+        print("======== Result for {} ======== ".format(hostname))
+        ssh_client.connect(hostname=hostname, username="rkurdukar", password="my_password",timeout=10)
+        stdin, stdout, stderr = ssh_client.exec_command("df -h")
+        output = stdout.readlines() + stderr.readlines()
+        for line in output:
+            print(line.strip("\n"))
+
+    except Exception as e:
+        print("Error Occured  {}".format(e))
+    lock.release()
+
+if __name__ == '__main__':
+    t1 = time.time()
+    print("Enter the list of server names... Type 'done' at the end'")
+    content = []
+    threads = []
+    while True:
+        try:
+            line = input()
+            if line == "exit" or line == "quit":
+                sys.exit(0)
+            elif line == "done":
+                break
+        except KeyboardInterrupt as e:
+            print("'cntl + c' is disabled , please type 'exit' or 'quit' to leave without save")
+        except EOFError as e:
+            print("Wrong Input")
+        #if line not in content:
+        content.append(line)
+    print("\n")
+    ssh_client = paramiko.SSHClient()
+    lock = threading.Lock()
+    for each in content:
+       res = ''.join(random.choices(string.ascii_lowercase,k=3))
+       res = threading.Thread(target=ssh_execute,args=(each,))
+       threads.append(res)
+
+    for x in threads:
+        x.start()
+
+    for x in threads:
+        x.join()
+
+    print("Time taken {}".format(time.time() - t1))
