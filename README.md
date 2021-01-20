@@ -4,17 +4,7 @@ Script is useful to perform remote execution of commands on multiple hosts at on
 
 Program comes with few options below
 
-usage: app.py [-h] [-f FILE] -i INCIDENT -c COMMAND [-v | -p]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -f FILE, --file FILE  File name containing sever list
-  -i INCIDENT, --incident INCIDENT
-                        Incident/Change No
-  -c COMMAND, --command COMMAND
-                        Command to execute
-  -v, --verbose         Display all results on screen
-  -p, --progress        Show overall progress and store result in file
+![ScreenShot](https://raw.github.com/{Rohitkuru}/{multi-ssh}/{main}/{multissh_help.png})
 
 
 
