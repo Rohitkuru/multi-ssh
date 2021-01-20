@@ -4,7 +4,7 @@ Script is useful to perform remote execution of commands on multiple hosts at on
 
 Program comes with few options below
 
-![ScreenShot]https://raw.github.com/{Rohitkuru}/{multi-ssh}/{main}/{multissh_help.png}
+![ScreenShot](https://raw.github.com/{Rohitkuru}/{multi-ssh}/{main}/{multissh_help.png})
 
 
 
