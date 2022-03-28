@@ -19,3 +19,15 @@ Password is currently hardcoded , but to avoid doing that
 2) Or setup , SSH - passwordless authentication across network for user who will run command 
 
 
+# how to install on linux.
+
+1) python -m venv env
+2) cd env
+3) git clone repository
+4) source bin/activate
+5) pip install -r requirements.txt
+6) python multi-ssh.py -i <incident_no> -f <file_name> -v 
+7) OR
+8) python multi-ssh.py -i <incident_no> -f <file_name> -p
+9)  -p is for progress
+
